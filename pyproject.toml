@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "memleek"
+version = "0.1.0"
+description = ""
+authors = ["Uriel Mandujano <uriel@prefect.io>"]
+readme = "README.md"
+packages = [{include = "memleek"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+rich = "^13.5.3"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.9.1"
+ruff = "^0.0.290"
+mypy = "^1.5.1"
+prefect = "^2.13.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
