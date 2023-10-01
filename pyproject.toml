@@ -1,10 +1,11 @@
 [tool.poetry]
 name = "memleek"
 version = "0.1.0"
-description = ""
+description = "A memory usage analysis tool"
 authors = ["Uriel Mandujano <uriel@prefect.io>"]
 readme = "README.md"
 packages = [{ include = "memleek" }]
+keywords = ["memory", "memory leaks"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
