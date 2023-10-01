@@ -16,13 +16,17 @@ class MemoryProfiler:
     ) -> None:
         self.snaps: list[tracemalloc.Snapshot] = []
         self.display = display or StatsDisplay()
-        self.filters = filters or [
-            tracemalloc.Filter(False, "<frozen importlib._bootstrap>"),
-            tracemalloc.Filter(False, "<frozen importlib._bootstrap_external>"),
-            tracemalloc.Filter(False, "<unknown>"),
-            tracemalloc.Filter(False, "*tracemalloc.py"),
-            tracemalloc.Filter(False, "*/rich/*"),
-        ]
+        self.filters = (
+            filters
+            if filters is not None
+            else [
+                tracemalloc.Filter(False, "<frozen importlib._bootstrap>"),
+                tracemalloc.Filter(False, "<frozen importlib._bootstrap_external>"),
+                tracemalloc.Filter(False, "<unknown>"),
+                tracemalloc.Filter(False, "*tracemalloc.py"),
+                tracemalloc.Filter(False, "*/rich/*"),
+            ]
+        )
         self.summarize = summarize
 
     def __enter__(self):
@@ -78,10 +82,3 @@ class MemoryProfiler:
 
     def display_latest_stats(self):
         self.display.show_stats(self.latest_stats, title="Diff for last two snapshots")
-
-
-if __name__ == "__main__":
-    with MemoryProfiler() as profiler:
-        for i in range(2):
-            # expensive work
-            profiler.snap()
