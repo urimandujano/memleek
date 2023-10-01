@@ -6,4 +6,5 @@
             "source.fixAll": true
         }
     },
+    "python.linting.enabled": false,
 }
