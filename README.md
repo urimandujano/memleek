@@ -15,7 +15,7 @@ def my_sus_func():
 
 with MemoryProfiler() as profiler:
     my_sus_func()
-    profiler.snap()    
+    profiler.snap()
 ```
 
 Sample output:

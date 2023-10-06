@@ -21,6 +21,7 @@ repos:
         args: ["--no-update"]
       - id: poetry-install
         args: ["--sync"]
+        language: system
         always_run: true
         stages:
           - "post-checkout"
